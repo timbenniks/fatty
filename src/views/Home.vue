@@ -1,12 +1,6 @@
 <template>
   <div class="home">
-    <weight-graph
-      start-date="December 1st 2019"
-      foreground-colour="#c50d0d"
-      :start-weight="106.1"
-      :current-weight="104.2"
-      :goal-weight="95"
-    />
+    <weight-graph foreground-colour="#c50d0d" />
 
     <div class="logo-wrapper">
       <logo />
