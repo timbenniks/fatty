@@ -1,18 +1,49 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <weight-graph
+      start-date="December 1st 2019"
+      foreground-colour="#c50d0d"
+      :start-weight="106.1"
+      :current-weight="104.2"
+      :goal-weight="95"
+    />
+
+    <div class="logo-wrapper">
+      <logo />
+      <h1>Fatty.</h1>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import WeightGraph from "@/components/WeightGraph";
+import Logo from "@/components/Logo";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    WeightGraph,
+    Logo
   }
 };
 </script>
+
+<style lang="scss">
+.home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+
+  .logo-wrapper {
+    width: rem(100px);
+    margin: 0 auto;
+    text-align: center;
+
+    .logo {
+      margin: rem(0 0 10px 0);
+    }
+  }
+}
+</style>
