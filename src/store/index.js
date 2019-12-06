@@ -20,7 +20,7 @@ export default new Vuex.Store({
   mutations: {
     setDataForGraph(state, data) {
       state.startWeight = data.startWeight;
-      state.currentWeight = data.list[data.list.length - 1].weight;
+      state.currentWeight = data.weight[data.weight.length - 1].weight;
       state.goalWeight = data.goalWeight;
       state.startDate = data.startDate;
       state.showCurrentWeight = data.startWeight;
