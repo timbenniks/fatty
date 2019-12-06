@@ -13,6 +13,6 @@ module.exports = {
   },
 
   configureWebpack: {
-    plugins: [new CopyPlugin([{ from: "src/assets/content", to: "/" }])]
+    plugins: [new CopyPlugin([{ from: "src/assets/content", to: "./api" }])]
   }
 };
