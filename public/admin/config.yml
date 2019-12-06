@@ -8,10 +8,11 @@ public_folder: "/img/" # The src attribute for uploaded media will begin with /i
 collections:
   - label: "Weight"
     name: "weight"
+    format: 'json'
     files:
       - label: "Weight List"
         name: "weight_list"
-        file: "src/assets/content/weight.yml"
+        file: "src/assets/content/weight.json"
         fields:
           - {label: Start Weight, name: startWeight, widget: number, valueType: float}
           - {label: Goal Weight, name: goalWeight, widget: number, valueType: float}
