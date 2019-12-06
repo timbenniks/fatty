@@ -1,0 +1,11 @@
+{
+  "startWeight": 106.1,
+  "goalWeight": 95,
+  "startDate": "2019-11-30T12:22:07.771Z",
+  "weight": [
+    {
+      "date": "2019-12-01T12:22:21.270Z",
+      "weight": 105
+    }
+  ]
+}
