@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: master
+
+collections:
+  - label: "Weight"
+    name: "weight"
+    files:
+      - label: "Weight List"
+        name: "weight_list"
+        file: "src/assets/content/weight.yml"
+        fields:
+          - {label: Start Weight, name: startWeight, widget: Number}
+          - {label: Goal Weight, name: goalWeight, widget: Number}
+          - {label: Start Date, name: startDate, widget: Date}
+          - label: Weight
+            name: weight
+            widget: list
+            fields:
+              - {label: Date, name: date, widget: Date}
+              - {label: Weight, name: weight, widget: Number}

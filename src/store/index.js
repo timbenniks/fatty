@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
+//import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -20,11 +20,11 @@ export default new Vuex.Store({
   mutations: {
     setDataForGraph(state, data) {
       state.startWeight = data.startWeight;
-      state.currentWeight = data.currentWeight;
+      state.currentWeight = data.list[data.list.length - 1].weight;
       state.goalWeight = data.goalWeight;
       state.startDate = data.startDate;
       state.showCurrentWeight = data.startWeight;
-      state.lostWeight = (data.startWeight - data.currentWeight).toFixed(1);
+      state.lostWeight = (data.startWeight - state.currentWeight).toFixed(1);
 
       state.percentageLost =
         (state.lostWeight * 100) / (data.startWeight - Number(data.goalWeight));
@@ -39,12 +39,7 @@ export default new Vuex.Store({
   },
   actions: {
     getWeightData({ commit }) {
-      axios
-        .get(process.env.VUE_APP_WEIGHT_ENDPOINT)
-        .then(response => {
-          commit("setDataForGraph", response.data);
-        })
-        .catch(error => console.error(error));
+      commit("setDataForGraph", require("../assets/content/weight"));
     }
   }
 });
