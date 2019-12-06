@@ -8,14 +8,14 @@
         Hi, I'm <a href="https://timbenniks.nl/" rel="noopener" target="_blank" title="Tim's Fitness Story">Tim Benniks</a> and this is the about page of the Fatty app.
       <p>
         To be able to loose weight I need a good incentive.
-        And for me that incentiev is public accountability.
+        And for me that incentive is public accountability.
       </p>
       <p>
-        This little app shows hwo much weight I have lost and it tweets an update into the world every time I step on the scale.
+        This little app shows how much weight I have lost and it tweets an update into the world every time I step on the scale.
       </p>
       <p>
         In February 2020 I'm speaking at the <a href="https://frontenddeveloperlove.com/" rel="noopener" target="_blank" title="Front-end Developer Love conference website.">Front-end Developer Love</a>
-        conference and by that time I want to weight 95kg.
+        conference and by that time I want to weigh ~95kg.
       </p>
       <p>
         I lost a <a href="https://timbenniks.nl/writings/my-fitness-story/" rel="noopener" target="_blank" title="Tim's Fitness Story">bunch of weight in the past</a> but the stress of life caught up to me.
