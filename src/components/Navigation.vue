@@ -1,12 +1,12 @@
 <template>
-  <nav class="navigation" role="navigation" aria-label="Main">
-    <a href="/" class="head-link" title="Go to Fatty home">
+  <nav class="navigation" aria-label="Main Naviogation">
+    <router-link to="/" title="Go to Fatty home" class="head-link">
       <figure style="--aspect-ratio:1/1;">
         <logo />
       </figure>
       <span>FATTY BY TIM BENNIKS</span>
-    </a>
-
+    </router-link>
+  
     <button
       id="button"
       :class="{ 'is-active': burgerActive }"
@@ -24,16 +24,16 @@
     </button>
     <ul id="menu" class="dropdown-menu" tabindex="-1">
       <li>
-        <router-link to="/about">About.</router-link>
+        <router-link to="/about" title="Read about Fatty.">About.</router-link>
       </li>
       <li>
         <a
           href="https://timbenniks.nl/"
           title="Go to timbenniks.nl"
           rel="noopener"
-          target="_blank"
-          >timbenniks.nl.</a
-        >
+          target="_blank">
+          timbenniks.com.
+        </a>
       </li>
     </ul>
   </nav>
