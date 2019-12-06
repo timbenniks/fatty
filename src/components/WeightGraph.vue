@@ -19,13 +19,19 @@
         }"
       ></path>
     </svg>
-    <span class="begin-weight">{{ weightData.beginWeight }}kg</span>
+    <span class="begin-weight">{{ weightData.startWeight }}kg</span>
     <span class="current-weight">
       {{ weightData.showCurrentWeight }}<i>kg</i>
     </span>
     <span class="lost-weight">
-      lost <span>{{ weightData.lostWeight }}kg</span> since
-      {{ weightData.startDate }}
+      lost <span>{{ weightData.lostWeight }}kg</span> since <br />
+      {{
+        new Date(weightData.startDate).toLocaleDateString("en-GB", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        })
+      }}
     </span>
     <span class="goal-weight">{{ weightData.goalWeight }}kg</span>
   </div>
@@ -171,7 +177,7 @@ export default {
     transform: translateX(-50%);
     right: auto;
     bottom: rem(-21px);
-    width: rem(146px);
+    width: rem(150px);
     text-align: center;
     line-height: 1.5;
 
