@@ -13,12 +13,12 @@ collections:
         name: "weight_list"
         file: "src/assets/content/weight.yml"
         fields:
-          - {label: Start Weight, name: startWeight, widget: number}
-          - {label: Goal Weight, name: goalWeight, widget: number}
+          - {label: Start Weight, name: startWeight, widget: number, valueType: float}
+          - {label: Goal Weight, name: goalWeight, widget: number, valueType: float}
           - {label: Start Date, name: startDate, widget: date}
           - label: Weight
             name: weight
             widget: list
             fields:
               - {label: Date, name: date, widget: date}
-              - {label: Weight, name: weight, widget: number}
+              - {label: Weight, name: weight, widget: number, valueType: float}
