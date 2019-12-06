@@ -14,5 +14,17 @@ module.exports = {
 
   configureWebpack: {
     plugins: [new CopyPlugin([{ from: "src/assets/content", to: "./api" }])]
+  },
+
+  pwa: {
+    name: "Fatty",
+    themeColor: "#0a1d2d",
+    msTileColor: "#22292f",
+    appleMobileWebAppCapable: "yes",
+    appleMobileWebAppStatusBarStyle: "black",
+
+    // configure the workbox plugin
+    workboxPluginMode: "GenerateSW",
+    workboxOptions: {}
   }
 };
