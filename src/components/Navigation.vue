@@ -66,9 +66,9 @@ export default {
 .navigation {
   position: -webkit-sticky;
   position: sticky;
-  background: #0c2235;
+  background: $color1;
   min-height: rem(64px);
-  border-bottom: 1px solid #0c2235;
+  border-bottom: 1px solid $color1;
   top: 0;
   left: 0;
   width: 100%;
@@ -93,7 +93,7 @@ export default {
 
     span {
       align-self: center;
-      color: #fff;
+      color: $color3;
       font-weight: 900;
       font-size: rem(16px);
     }
@@ -155,7 +155,7 @@ export default {
   @include responsive('right', (xs: auto, m: 0));
 
   // prettier-ignore
-  @include responsive('background', (xs: rgba(#0c2235, 0.97), m: none));
+  @include responsive('background', (xs: rgba($color1, 0.97), m: none));
 
   // prettier-ignore
   @include responsive('box-shadow', (xs: 0 10px 22px -6px rgba(#000, 0.8), m: none));
@@ -176,13 +176,13 @@ export default {
     font-weight: 400;
     letter-spacing: 0.1em;
     font-size: rem(16px);
-    color: #fff;
+    color: $color3;
     text-decoration: none;
     position: relative;
     z-index: 1;
 
     &.active {
-      color: #fff;
+      color: $color3;
 
       &:before {
         top: 0;
@@ -196,7 +196,7 @@ export default {
     &:before {
       content: "";
       position: absolute;
-      background: #3590d5;
+      background: $color2;
       bottom: 0;
       left: 0;
       right: 0;
@@ -206,7 +206,7 @@ export default {
     }
 
     @include hover-supported() {
-      color: #fff;
+      color: $color3;
     }
 
     &:focus {
@@ -228,7 +228,7 @@ export default {
       content: "";
       position: absolute;
       height: 1px;
-      background: #3590d5;
+      background: $color2;
       width: calc(100% - 8px);
       left: rem(4px);
       bottom: 0;

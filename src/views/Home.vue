@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <weight-graph foreground-colour="#c50d0d" />
+    <weight-graph foreground-colour="$color4" />
 
     <support-form>
       <div class="logo-wrapper">

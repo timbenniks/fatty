@@ -130,13 +130,13 @@ export default {
     cursor: pointer;
 
     span {
-      color: #3590d5;
+      color: $color2;
       text-decoration: underline;
     }
 
     &:hover {
       span {
-        color: #c50d0d;
+        color: $color4;
       }
     }
   }
@@ -147,10 +147,10 @@ export default {
     left: 50%;
     width: rem(330px);
     height: auto;
-    background: #3590d5;
+    background: $color2;
     padding: 1rem;
     transform: translateX(-50%);
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid $color3;
     box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.5);
 
     label {
@@ -166,7 +166,7 @@ export default {
       width: 13px;
       background: none;
       border: none;
-      color: #fff;
+      color: $color3;
       font-weight: bold;
       font-size: rem(23px);
       transform: rotate(45deg);
@@ -180,11 +180,11 @@ export default {
       margin: 0;
 
       &:hover {
-        color: #0c2235;
+        color: $color1;
       }
 
       &:focus {
-        outline: 1px solid #fff;
+        outline: 1px solid $color3;
       }
     }
 
@@ -197,12 +197,12 @@ export default {
       width: rem(100%);
       line-height: 1;
       padding: rem(6px);
-      background: #0c2235;
-      border-bottom: solid #fff;
+      background: $color1;
+      border-bottom: solid $color3;
       border-width: 0 0 2px 0;
       font-family: $font;
       font-size: rem(17px);
-      color: #fff;
+      color: $color3;
       -webkit-appearance: none;
       border-radius: 0;
 
@@ -212,12 +212,12 @@ export default {
     }
 
     .submit button {
-      background: #c50d0d;
-      border-bottom: solid #fff;
+      background: $color4;
+      border-bottom: solid $color3;
       border-width: 0 0 2px 0;
       font-family: $font;
       font-size: rem(14px);
-      color: #fff;
+      color: $color3;
       font-weight: bold;
       text-transform: uppercase;
       height: rem(34.8px);
@@ -228,7 +228,7 @@ export default {
 
       &:hover,
       &:focus {
-        background: #0c2235;
+        background: $color1;
       }
     }
   }
@@ -241,14 +241,14 @@ export default {
     outline: none;
 
     .logo-wrapper {
-      outline: 1px solid #fff;
+      outline: 1px solid $color3;
     }
   }
 }
 
 input.error {
   outline: none;
-  border-color: 1px solid #c50d0d;
+  border-color: 1px solid $color4;
 
   &:valid {
     border-style: auto;

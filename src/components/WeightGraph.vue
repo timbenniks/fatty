@@ -47,7 +47,7 @@ export default {
   },
   data() {
     return {
-      backgroundColour: "#fff",
+      backgroundColour: "$color3",
       backgroundStrokeWidth: 1,
       foregroundStrokeWidth: 3,
       path: "M 50,50 m -47,0 a 47,47 0 1 1 94,0",
@@ -144,6 +144,7 @@ export default {
 <style scoped lang="scss">
 @import "../styles/variables";
 @import "../styles/mixins";
+
 .weight-graph {
   width: 80%;
   margin: 0 auto 100px;
@@ -184,7 +185,7 @@ export default {
     line-height: 1.5;
 
     span {
-      color: #3590d5;
+      color: $color2;
     }
   }
 
