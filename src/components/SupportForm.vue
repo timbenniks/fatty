@@ -63,7 +63,7 @@
                 placeholder="@username"
                 pattern="^@[A-Za-z0-9_]{1,15}$"
                 @invalid="handleError"
-                @input="ev => (form.username = ev.target.value)"
+                @input="ev => (form.handle = ev.target.value)"
                 title="Only Twitter handles allowed"
                 required
                 value="@"
@@ -87,7 +87,7 @@ export default {
     return {
       showForm: false,
       form: {
-        username: ""
+        handle: ""
       }
     };
   },
