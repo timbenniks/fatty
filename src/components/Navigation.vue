@@ -6,7 +6,7 @@
       </figure>
       <span>FATTY BY TIM BENNIKS</span>
     </router-link>
-  
+
     <button
       id="button"
       :class="{ 'is-active': burgerActive }"
@@ -31,7 +31,8 @@
           href="https://timbenniks.nl/"
           title="Go to timbenniks.nl"
           rel="noopener"
-          target="_blank">
+          target="_blank"
+        >
           timbenniks.com.
         </a>
       </li>

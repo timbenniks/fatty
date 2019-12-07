@@ -1,4 +1,3 @@
-const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -6,9 +5,19 @@ module.exports = {
     "style-resources-loader": {
       preProcessor: "scss",
       patterns: [
-        path.resolve(__dirname, "./src/styles/_variables.scss"),
-        path.resolve(__dirname, "./src/styles/_mixins.scss")
+        "/mnt/c/Work/fatty/src/styles/_variables.scss",
+        "/mnt/c/Work/fatty/src/styles/_mixins.scss"
       ]
+    },
+    prerenderSpa: {
+      registry: undefined,
+      renderRoutes: ["/", "about"],
+      useRenderEvent: true,
+      headless: false,
+      onlyProduction: true,
+      customRendererConfig: {
+        args: ["--disable-extensions"]
+      }
     }
   },
 

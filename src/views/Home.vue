@@ -2,22 +2,26 @@
   <div class="home">
     <weight-graph foreground-colour="#c50d0d" />
 
-    <div class="logo-wrapper">
-      <logo />
-      <h1>Fatty.</h1>
-    </div>
+    <support-form>
+      <div class="logo-wrapper">
+        <logo />
+        <h1>Fatty.</h1>
+      </div>
+    </support-form>
   </div>
 </template>
 
 <script>
 import WeightGraph from "@/components/WeightGraph";
 import Logo from "@/components/Logo";
+import SupportForm from "@/components/SupportForm";
 
 export default {
   name: "home",
   components: {
     WeightGraph,
-    Logo
+    Logo,
+    SupportForm
   }
 };
 </script>

@@ -182,7 +182,7 @@ export default {
     line-height: 1.5;
 
     span {
-      color: lighten($color2, 20);
+      color: $color2;
     }
   }
 
