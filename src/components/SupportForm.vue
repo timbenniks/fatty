@@ -29,9 +29,20 @@
         Support Tim on his #roadtoamsterdam
       </button>
 
-      <p v-show="!showForm" @click="toggleForm" class="support">
+      <p @click="toggleForm" class="support">
         Support me by <span>clicking</span> on my belly!
       </p>
+
+      <div class="supporters">
+        <h3>Proud supporters</h3>
+        <ul>
+          <li v-for="submission in submissions" :key="submission.handle">
+            <a :href="submission.url" rel="noopener" target="_blank">{{
+              submission.handle
+            }}</a>
+          </li>
+        </ul>
+      </div>
 
       <div v-show="showForm" class="support-form-wrapper">
         <form
@@ -81,6 +92,8 @@
 
 <script>
 import axios from "axios";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "SupportForm",
   data() {
@@ -101,7 +114,16 @@ export default {
       }
     }
   },
+
+  created() {
+    this.getSubmissions();
+  },
+
+  computed: mapGetters(["submissions"]),
+
   methods: {
+    ...mapActions(["getSubmissions"]),
+
     toggleForm() {
       this.showForm = !this.showForm;
     },
@@ -152,12 +174,7 @@ export default {
   text-align: center;
 
   .support {
-    position: absolute;
-    top: rem(160px);
-    left: 50%;
-    width: rem(330px);
-    height: auto;
-    transform: translateX(-50%);
+    margin: rem(0 0 40px 0);
     cursor: pointer;
 
     span {
@@ -267,6 +284,7 @@ export default {
 
 .support-form-action-logo-wrap {
   cursor: pointer;
+  margin: rem(0 auto 20px);
 
   &:focus {
     outline: none;
@@ -284,6 +302,16 @@ input.error {
   &:valid {
     border-style: auto;
     border-color: inherit;
+  }
+}
+
+.supporters ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+
+  a {
+    color: $color2;
   }
 }
 </style>

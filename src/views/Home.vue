@@ -30,11 +30,7 @@ export default {
 @import "../styles/variables";
 @import "../styles/mixins";
 .home {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  margin: rem(50px auto);
 
   .logo-wrapper {
     width: rem(100px);

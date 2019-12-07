@@ -147,9 +147,9 @@ export default {
 
 .weight-graph {
   width: 80%;
-  margin: 0 auto 100px;
+  margin: rem(0 auto 80px);
   position: relative;
-  max-width: 375px;
+  max-width: rem(375px);
 
   .goal-weight,
   .current-weight,
