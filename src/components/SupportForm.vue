@@ -286,6 +286,15 @@ export default {
   cursor: pointer;
   margin: rem(0 auto 20px);
 
+  .logo {
+    
+    animation: shake 4s ease;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    animation-iteration-count: infinite;
+  }
+
   &:focus {
     outline: none;
 
@@ -313,5 +322,16 @@ input.error {
   a {
     color: $color2;
   }
+}
+
+@keyframes shake {
+  0% {transform: translate3d(0, 0, 0 )}
+  2% {transform: translate3d(-3px, 0, 0 )}
+  4% {transform: translate3d(5px, 0, 0 )}
+  6% {transform: translate3d(-8px, 0, 0 )}
+  8% {transform: translate3d(8px, 0, 0 )}
+  10% {transform: translate3d(-5px, 0, 0 )}
+  12% {transform: translate3d(3px, 0, 0 )}
+  14% {transform: translate3d(0, 0, 0 )}
 }
 </style>
