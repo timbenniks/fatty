@@ -40,6 +40,7 @@
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          @submit.prevent="handleSubmit"
         >
           <label for="handle" id="exp_elem"
             >Please provide a Twitter handle</label
@@ -62,6 +63,7 @@
                 placeholder="@username"
                 pattern="^@[A-Za-z0-9_]{1,15}$"
                 @invalid="handleError"
+                @input="ev => (form.username = ev.target.value)"
                 title="Only Twitter handles allowed"
                 required
                 value="@"
@@ -78,11 +80,15 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "SupportForm",
   data() {
     return {
-      showForm: false
+      showForm: false,
+      form: {
+        username: ""
+      }
     };
   },
   watch: {
@@ -99,13 +105,38 @@ export default {
     toggleForm() {
       this.showForm = !this.showForm;
     },
+
     handleError(error) {
       error.target.classList.add("error");
     },
+
     onEscapeKeyUp(event) {
       if (event.which === 27) {
         this.showForm = false;
       }
+    },
+
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
+
+    handleSubmit() {
+      axios
+        .post("/", this.encode({ "form-name": "support", ...this.form }), {
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        })
+        .then(() => {
+          this.$router.push("thanks");
+        })
+        .catch(() => {
+          this.$router.push("error");
+        });
     }
   }
 };
