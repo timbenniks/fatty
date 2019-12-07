@@ -47,7 +47,7 @@ export default {
   },
   data() {
     return {
-      backgroundColour: "$color3",
+      backgroundColour: "#fff",
       backgroundStrokeWidth: 1,
       foregroundStrokeWidth: 3,
       path: "M 50,50 m -47,0 a 47,47 0 1 1 94,0",
