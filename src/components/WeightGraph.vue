@@ -182,7 +182,7 @@ export default {
     line-height: 1.5;
 
     span {
-      color: $color2;
+      color: #3590d5;
     }
   }
 
