@@ -62,6 +62,8 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "../styles/variables";
+@import "../styles/mixins";
 .about {
   width: 100%;
   max-width: rem(600px);

@@ -112,6 +112,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../styles/variables";
+@import "../styles/mixins";
 .support-form {
   position: relative;
   width: rem(330px);

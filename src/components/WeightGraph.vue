@@ -142,6 +142,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../styles/variables";
+@import "../styles/mixins";
 .weight-graph {
   width: 80%;
   margin: 0 auto 100px;
