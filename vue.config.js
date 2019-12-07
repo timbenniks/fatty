@@ -13,7 +13,7 @@ module.exports = {
       registry: undefined,
       renderRoutes: ["/", "about"],
       useRenderEvent: true,
-      headless: false,
+      headless: true,
       onlyProduction: true,
       customRendererConfig: {
         args: ["--disable-extensions"]
