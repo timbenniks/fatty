@@ -17,7 +17,7 @@
       </p>
 
       <p>
-        To be able to loose weight I need a good incentive. And for me that
+        To be able to lose weight I need a good incentive. And for me that
         incentive is public accountability.
       </p>
       <p>
@@ -44,7 +44,7 @@
           title="Tim's Fitness Story"
           >bunch of weight in the past</a
         >
-        but the stress of life caught up to me. I shall loose these kilo's
+        but the stress of life caught up to me. I shall lose these kilo's
         again!
       </p>
     </article>
