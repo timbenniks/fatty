@@ -34,7 +34,7 @@
       </p>
 
       <div class="supporters">
-        <h3>Proud supporters</h3>
+        <h3>Supporters 😍😘</h3>
         <ul>
           <li v-for="submission in submissions" :key="submission.handle">
             <a :href="submission.url" rel="noopener" target="_blank">{{
@@ -179,7 +179,8 @@ export default {
 
     span {
       color: $color2;
-      text-decoration: underline;
+      text-decoration: none;
+      border-bottom: 1px dotted;
     }
 
     &:hover {
@@ -318,8 +319,19 @@ input.error {
   text-align: center;
   padding: 0;
 
+  li {
+    display: inline-block;
+    padding: rem(0 5px 0 0);
+  }
+
   a {
     color: $color2;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+
+    &:hover {
+      color: $color4;
+    }
   }
 }
 
