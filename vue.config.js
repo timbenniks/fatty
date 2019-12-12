@@ -22,7 +22,12 @@ module.exports = {
   },
 
   configureWebpack: {
-    plugins: [new CopyPlugin([{ from: "src/assets/content", to: "./api" }])]
+    plugins: [
+      new CopyPlugin([
+        { from: "src/assets/content", to: "./api" },
+        { from: "src/assets/weight-graph.svg", to: "./img/weight-graph.svg" }
+      ])
+    ]
   },
 
   pwa: {
