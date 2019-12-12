@@ -1,9 +1,9 @@
-var jsdom = require("jsdom");
+const jsdom = require("jsdom");
 const d3 = require("d3");
 const fs = require("fs");
 
 const weightData = require("./src/assets/content/weight.json");
-const { jsDOM } = jsdom;
+const { JSDOM } = jsdom;
 
 const startWeight = weightData.startWeight;
 const goalWeight = weightData.goalWeight;
@@ -13,7 +13,7 @@ const max = 147.708;
 const percentageLost = (lostWeight * 100) / (startWeight - Number(goalWeight));
 const dashArrowProgress = (percentageLost * max) / 100;
 
-const dom = new jsDOM(`<!DOCTYPE html><body></body>`);
+const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
 const body = d3.select(dom.window.document.querySelector("body"));
 /*@import url('https://fonts.googleapis.com/css?family=Lato:400,900&text=1234567890.fattykgtimbennikscomlostsince/');*/
 
