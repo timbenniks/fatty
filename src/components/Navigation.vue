@@ -1,10 +1,25 @@
 <template>
   <nav class="navigation" aria-label="Main Naviogation">
-    <router-link to="/" title="Go to Fatty home" class="head-link">
-      <figure style="--aspect-ratio:1/1;">
-        <logo />
-      </figure>
-      <span>FATTY BY TIM BENNIKS</span>
+    <router-link
+      to="/"
+      title="Go to Fatty home"
+      class="head-link"
+      v-slot="{ href, route, navigate, isActive, isExactActive }"
+    >
+      <a
+        :class="[
+          isActive && 'router-link-active',
+          isExactActive && 'router-link-exact-active'
+        ]"
+        title="See my progress in a chart."
+        :href="href"
+        @click="hideMenu(navigate)"
+      >
+        <figure style="--aspect-ratio:1/1;">
+          <logo />
+        </figure>
+        <span>FATTY BY TIM BENNIKS</span>
+      </a>
     </router-link>
 
     <button
@@ -16,21 +31,49 @@
       aria-haspopup="true"
       aria-controls="menu"
       aria-label="Navigation"
-      @click="showMenu"
+      @click="toggleMenu(false)"
     >
       <span class="hamburger-box">
         <span class="hamburger-inner" />
       </span>
     </button>
     <ul id="menu" class="dropdown-menu" tabindex="-1">
-      <li>
-        <router-link to="/progress" title="See my progressin a chart.">
-          Progress.
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/about" title="Read about Fatty.">About.</router-link>
-      </li>
+      <router-link
+        to="/progress"
+        v-slot="{ href, route, navigate, isActive, isExactActive }"
+      >
+        <li>
+          <a
+            :class="[
+              isActive && 'router-link-active',
+              isExactActive && 'router-link-exact-active'
+            ]"
+            title="See my progress in a chart."
+            :href="href"
+            @click="toggleMenu(navigate)"
+            >Progress.</a
+          >
+        </li>
+      </router-link>
+
+      <router-link
+        to="/about"
+        v-slot="{ href, route, navigate, isActive, isExactActive }"
+      >
+        <li>
+          <a
+            :class="[
+              isActive && 'router-link-active',
+              isExactActive && 'router-link-exact-active'
+            ]"
+            title="Read about Fatty."
+            :href="href"
+            @click="toggleMenu(navigate)"
+          >
+            About.
+          </a>
+        </li>
+      </router-link>
       <li>
         <a
           href="https://timbenniks.nl/"
@@ -54,8 +97,20 @@ export default {
     };
   },
   methods: {
-    showMenu() {
+    toggleMenu(callback) {
       this.burgerActive = !this.burgerActive;
+
+      if (callback) {
+        callback();
+      }
+    },
+
+    hideMenu(callback) {
+      this.burgerActive = false;
+
+      if (callback) {
+        callback();
+      }
     }
   },
   components: {
@@ -186,7 +241,7 @@ export default {
     position: relative;
     z-index: 1;
 
-    &.active {
+    &.router-link-active {
       color: $color3;
 
       &:before {
