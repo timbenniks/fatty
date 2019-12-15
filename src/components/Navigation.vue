@@ -24,6 +24,11 @@
     </button>
     <ul id="menu" class="dropdown-menu" tabindex="-1">
       <li>
+        <router-link to="/progress" title="See my progressin a chart.">
+          Progress.
+        </router-link>
+      </li>
+      <li>
         <router-link to="/about" title="Read about Fatty.">About.</router-link>
       </li>
       <li>

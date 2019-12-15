@@ -4,6 +4,14 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
+const formatDate = dateString => {
+  const d = new Date(dateString);
+  const day = d.getDate();
+  const month = d.getMonth() + 1;
+
+  return `${day}/${month}`;
+};
+
 export default new Vuex.Store({
   state: {
     startWeight: 0,
@@ -16,7 +24,10 @@ export default new Vuex.Store({
     numberForScale: 0,
     max: 147.708,
     amount: 0,
-    submissions: []
+    submissions: [],
+    weight: [],
+    formData: [],
+    labels: {}
   },
   mutations: {
     setDataForGraph(state, data) {
@@ -31,6 +42,32 @@ export default new Vuex.Store({
         (state.lostWeight * 100) / (data.startWeight - Number(data.goalWeight));
 
       state.numberForScale = (state.percentageLost * state.max) / 100;
+      state.weight = data.weight;
+
+      const weightList = [state.startWeight];
+      data.weight.forEach(weightPoint => {
+        weightList.push(weightPoint.weight);
+      });
+
+      const dateList = [formatDate(state.startDate)];
+      data.weight.forEach(weightPoint => {
+        dateList.push(formatDate(weightPoint.date));
+      });
+
+      state.formData = [
+        {
+          data: weightList,
+          smooth: true,
+          fill: true,
+          showPoints: true
+        }
+      ];
+
+      state.labels = {
+        xLabels: dateList,
+        yLabels: 5,
+        yLabelsTextFormatter: val => `${val.toFixed(1)}kg`
+      };
     },
 
     setSubmissions(state, data) {
@@ -54,7 +91,10 @@ export default new Vuex.Store({
         percentageLost: state.percentageLost,
         numberForScale: state.numberForScale,
         max: state.max,
-        amount: state.amount
+        amount: state.amount,
+        weight: state.weight,
+        formData: state.formData,
+        labels: state.labels
       };
     },
 

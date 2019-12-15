@@ -4,6 +4,7 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import VueAnalytics from "vue-analytics";
+import TrendChart from "vue-trend-chart";
 
 Vue.config.productionTip = false;
 
@@ -13,6 +14,8 @@ Vue.use(VueAnalytics, {
   id: "UA-6797812-7",
   router
 });
+
+Vue.use(TrendChart);
 
 new Vue({
   router,
