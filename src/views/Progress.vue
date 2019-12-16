@@ -1,8 +1,26 @@
 <template>
   <div class="progress">
-    <logo />
-    <h1>Fatty.</h1>
+    <h1>{{ date }}</h1>
 
+    <div class="weight-graph">
+      <graph
+        foreground-colour="#c50d0d"
+        :number-for-scale="progress"
+        :animation-speed="400"
+        :animation-delay="10"
+      />
+      <stats
+        :start-weight="Number(weightData.startWeight)"
+        :lost-weight="Number(lost)"
+        :start-date="weightData.startDate"
+        :goal-weight="Number(weightData.goalWeight)"
+        :current-weight="Number(current)"
+        :animation-speed="400"
+        :animation-delay="10"
+      />
+    </div>
+
+    <p class="tip">Tip: hover or tap me to see more information</p>
     <TrendChart
       v-if="weightData"
       :datasets="weightData.formData"
@@ -10,26 +28,38 @@
       :labels="weightData.labels"
       :min="weightData.currentWeight - 1"
       :interactive="true"
-      padding="5 5 0"
       @mouse-move="onMouseMove"
     />
   </div>
 </template>
 
 <script>
-import Logo from "@/components/Logo";
 import { mapGetters, mapActions } from "vuex";
+import Graph from "@/components/Graph.vue";
+import Stats from "@/components/Stats.vue";
 
 export default {
   name: "Progress",
   components: {
-    Logo
+    Stats,
+    Graph
   },
   data() {
     return {
       grid: {
         verticalLines: true,
         horizontalLines: true
+      },
+
+      date: false,
+      current: 0,
+      progress: 0,
+      lost: 0,
+      dateOptions: {
+        weekday: "long",
+        year: "numeric",
+        month: "short",
+        day: "numeric"
       }
     };
   },
@@ -40,11 +70,51 @@ export default {
 
   computed: mapGetters(["weightData"]),
 
+  watch: {
+    weightData: {
+      immediate: true,
+      handler: function(weightData) {
+        if (weightData.startWeight === 0) {
+          return;
+        }
+
+        this.current = weightData.currentWeight.toFixed(1);
+        this.lost = weightData.lostWeight;
+        this.progress = weightData.numberForScale;
+
+        this.date = new Date(
+          this.weightData.weight[this.weightData.weight.length - 1].date
+        ).toLocaleDateString("en-US", this.dateOptions);
+      }
+    },
+
+    current(newValue) {
+      this.lost = (this.weightData.startWeight - newValue).toFixed(1);
+
+      const percentageLost =
+        (this.lost * 100) /
+        (this.weightData.startWeight - Number(this.weightData.goalWeight));
+
+      this.progress = (percentageLost * this.weightData.max) / 100;
+    }
+  },
+
   methods: {
     ...mapActions(["getWeightData"]),
 
     onMouseMove(data) {
-      console.log(data);
+      if (data !== null) {
+        const weight = data.data[0];
+        const measurementObject = this.weightData.weight[data.index];
+
+        if (measurementObject) {
+          this.current = weight;
+          this.date = new Date(measurementObject.date).toLocaleDateString(
+            "en-US",
+            this.dateOptions
+          );
+        }
+      }
     }
   }
 };
@@ -59,13 +129,12 @@ export default {
   margin: rem(40px auto 0);
   text-align: center;
 
-  .logo {
-    margin: rem(0 auto 20px);
-    width: rem(130px);
+  h1 {
+    margin: rem(0 0 30px 0);
   }
 
-  h1 {
-    margin: rem(0 auto 50px);
+  .tip {
+    margin: 0;
   }
 
   .vtc {

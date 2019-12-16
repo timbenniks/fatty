@@ -65,7 +65,7 @@ export default new Vuex.Store({
 
       state.labels = {
         xLabels: dateList,
-        yLabels: 5,
+        yLabels: 4,
         yLabelsTextFormatter: val => `${val.toFixed(1)}kg`
       };
     },
