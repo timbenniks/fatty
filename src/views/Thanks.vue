@@ -34,8 +34,7 @@
           title="Tim's Fitness Story"
           >bunch of weight in the past</a
         >
-        but the stress of life caught up to me. I shall lose these kilo's
-        again!
+        but the stress of life caught up to me. I shall lose these kilo's again!
       </p>
     </article>
   </div>
