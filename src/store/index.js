@@ -44,14 +44,23 @@ export default new Vuex.Store({
       state.numberForScale = (state.percentageLost * state.max) / 100;
       state.weight = data.weight;
 
-      const weightList = [state.startWeight];
+      data.weight.splice(1, 0, {
+        date: state.startDate,
+        weight: state.startWeight
+      });
+
+      const weightList = [];
       data.weight.forEach(weightPoint => {
         weightList.push(weightPoint.weight);
       });
 
-      const dateList = [formatDate(state.startDate)];
-      data.weight.forEach(weightPoint => {
-        dateList.push(formatDate(weightPoint.date));
+      const dateList = [];
+      data.weight.forEach((weightPoint, index) => {
+        if (index % 3 === 0) {
+          dateList.push(formatDate(weightPoint.date));
+        } else {
+          dateList.push("");
+        }
       });
 
       state.formData = [
