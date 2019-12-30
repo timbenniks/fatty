@@ -26,7 +26,7 @@
       :datasets="weightData.formData"
       :grid="grid"
       :labels="weightData.labels"
-      :min="weightData.currentWeight - 1"
+      :min="min"
       :interactive="true"
       @mouse-move="onMouseMove"
     />
@@ -60,7 +60,8 @@ export default {
         year: "numeric",
         month: "short",
         day: "numeric"
-      }
+      },
+      min: 95
     };
   },
 
@@ -85,6 +86,8 @@ export default {
         this.date = new Date(
           this.weightData.weight[this.weightData.weight.length - 1].date
         ).toLocaleDateString("en-US", this.dateOptions);
+
+        this.min = Math.min(...weightData.formData[0].data) - 1;
       }
     },
 
