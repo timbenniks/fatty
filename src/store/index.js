@@ -44,7 +44,7 @@ export default new Vuex.Store({
       state.numberForScale = (state.percentageLost * state.max) / 100;
       state.weight = data.weight;
 
-      data.weight.splice(1, 0, {
+      data.weight.splice(0, 0, {
         date: state.startDate,
         weight: state.startWeight
       });
@@ -63,14 +63,12 @@ export default new Vuex.Store({
         }
       });
 
-      state.formData = [
-        {
-          data: weightList,
-          smooth: true,
-          fill: true,
-          showPoints: true
-        }
-      ];
+      state.formData = [{
+        data: weightList,
+        smooth: true,
+        fill: true,
+        showPoints: true
+      }];
 
       state.labels = {
         xLabels: dateList,
@@ -112,16 +110,20 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getWeightData({ commit }) {
+    getWeightData({
+      commit
+    }) {
       commit("setDataForGraph", require("../assets/content/weight"));
     },
 
-    getSubmissions({ commit }) {
+    getSubmissions({
+      commit
+    }) {
       axios
         .get(
           `https://api.netlify.com/api/v1/sites/${process.env.VUE_APP_SITE_ID}/submissions?access_token=${process.env.VUE_APP_TOKEN}`
         )
-        .then(function(response) {
+        .then(function (response) {
           commit("setSubmissions", response.data);
         });
     }
